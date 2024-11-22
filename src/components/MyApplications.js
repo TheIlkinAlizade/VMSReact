@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import OrganizationName from "./OrganizationName";
+import { Link } from "react-router-dom";
 
 const MyApplications = () => {
   const [applications, setApplications] = useState([]);
@@ -28,7 +30,6 @@ const MyApplications = () => {
         setLoading(false); // Stop loading spinner regardless of success or error
       }
     };
-
     fetchApplications();
   }, []);
 
@@ -37,23 +38,21 @@ const MyApplications = () => {
   }
 
   return (
-    <div>
+    <div className="applicationslist">
       <h1>My Applications</h1>
       {applications.length === 0 ? (
         <p>You have not applied for any opportunities yet.</p>
       ) : (
-        <ul>
+        <ul className="applicants">
         {applications.map((application) => (
-          <li key={application.id}>
+          <li className="applicant" key={application.id}>
+            <Link to={`/opportunity/${application.volunteerOpportunity.id}`}>
             <h3>{application.volunteerOpportunity.title}</h3>
             <p>
-              Organization:{" "}
-              {application.volunteerOpportunity.organization
-                ? application.volunteerOpportunity.organization.name
-                : "No organization specified"}
+              Organization: <OrganizationName organizationId={application.volunteerOpportunity.organizationId} />
             </p>
             <p>Status: {application.isAccepted ? "Accepted" : "Pending"}</p>
-            <p>Applied On: {new Date(application.createdAt).toLocaleDateString()}</p>
+            </Link>
           </li>
         ))}
       </ul>

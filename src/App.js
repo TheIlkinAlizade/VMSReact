@@ -14,6 +14,10 @@ import Navbar from './components/Navbar';
 import OpportunityCard from './components/OpportunityCard';
 import ApplicantsList from './components/ApplicantsList';
 import MyApplications from './components/MyApplications';
+import OpportunityDetail from './components/OpportunityDetail';
+import OpportunityForm from './components/OpportunityForm';
+import ProfilePage from './components/ProfilePage';
+import OrganizationProfilePage from './components/OrganizationProfilePage';
 
 
 const App = () => {
@@ -25,11 +29,15 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/opportunities" element={<VolunteerOpportunities />} />
         <Route path="/opportunity/:id" element={<OpportunityCard />} />
+        <Route path="/opportunity/create" element={<OpportunityForm />} />
+        {/* <Route path="/opportunity/:id" element={<OpportunityDetail />} /> */}
 
         <Route path="/register/user" element={<RegisterUser />} />
         <Route path="/register/org" element={<RegisterOrg />} />
         <Route path="/login/user" element={<Login role="User" />} />
         <Route path="/login/org" element={<Login role="Organization" />} />
+        <Route path="/user/profile" element={<ProfilePage />} />
+        <Route path="/org/profile" element={<OrganizationProfilePage />} />
         <Route path="/applicants" element={<ApplicantsList />} />
         <Route path="/applicantions" element={<MyApplications />} />
         {/* Protected routes */}

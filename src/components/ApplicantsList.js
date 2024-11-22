@@ -33,12 +33,12 @@ const ApplicantsList = ({ }) => {
   if (loading) return <p>Loading applicants...</p>;
 
   return (
-    <div>
-      <h2>Applicants for Opportunity #{user.userId}</h2>
-      <ul>
+    <div className="applicantslist">
+      <h2>Applicants for {user.username}#{user.userId}</h2>
+      <ul className="applicants">
         {applicants.length > 0 ? (
           applicants.map((applicant) => (
-            <ApplicantItem key={applicant.id} applicant={applicant} opportunityId={user.userId} />
+            <ApplicantItem key={applicant.id} applicant={applicant} opportunityId={applicant.volunteerOpportunityId} />
           ))
         ) : (
           <p>No applicants yet.</p>

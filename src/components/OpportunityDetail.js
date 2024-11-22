@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom'; // To access URL parameters
+import { useParams } from 'react-router-dom'; // To access URL parameters
 import axios from 'axios';
-import VolunteerOpportunities from './VolunteerOpportunities ';
-import OrganizationName from './OrganizationName';
 
-const OpportunityCard = () => {
+const OpportunityDetail = () => {
   const { id } = useParams(); // Retrieve the opportunity ID from the URL
   const [opportunity, setOpportunity] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -79,52 +77,68 @@ const OpportunityCard = () => {
 
   return (
     <div className="container my-4">
-      {opportunity ? (
-        <div className="card oppcard">
-          <img
-            src={opportunity.imageUrl || 'http://localhost:3000/static/media/env.cd78f17d0d8207eef9f1.jpg'}
-            className="card-img-top"
-            alt={opportunity.title}
-            style={{height:'70vh', objectFit:'cover', objectPosition:'start'}}
-          />
-          <div className="card-body">
-            <h5>Title:</h5>
-            <h1 className="card-title">{opportunity.title}
-            </h1>
-            <h5>Description:</h5>
-            <p className="card-text">{opportunity.description}</p>
-            <p>
-              <strong>Start Date:</strong> {new Date(opportunity.startDate).toLocaleDateString()}
-            </p>
-            <p>
-              <strong>End Date:</strong> {new Date(opportunity.endDate).toLocaleDateString()}
-            </p>
-            <p>
-              <strong>Location:</strong> {opportunity.location}
-            </p>
-            <p>
-              Organization:<OrganizationName organizationId={opportunity.organizationId} />
-            </p>
-            {hasApplied ? (
-              <p className="text-success">You have already applied for this opportunity.</p>
-            ) : (
-              <button className="btn btn-primary" onClick={handleApply}>
-                Apply for Opportunity
-              </button>
-            )}
-          </div>
+{opportunity ? (
+    <div className="card post">
+      <img
+        src={opportunity.imageUrl || 'http://localhost:3000/static/media/env.cd78f17d0d8207eef9f1.jpg'}
+        className="card-img-top"
+        alt={opportunity.title}
+        style={{height:'80vh', objectFit:'cover', objectPosition:'start'}}
+      />
+      <div className="container">
+        <h3 className="card-title">{opportunity.title}</h3>
+        <p className="card-text">{opportunity.description}</p>
+        <p>
+          <strong>Start Date:</strong> {new Date(opportunity.startDate).toLocaleDateString()}
+        </p>
+        <p>
+          <strong>End Date:</strong> {new Date(opportunity.endDate).toLocaleDateString()}
+        </p>
+        <p>
+          <strong>Location:</strong> {opportunity.location}
+        </p>
+        <div className="product-about">
+                <div className="column">
+                    <div className="property">
+                        <label for="">Organizer</label>
+                        <span>{opportunity.name}</span>
+                    </div>
+                    <div className="property">
+                        <label for="">Start Date</label>
+                        <p>
+                            {new Date(opportunity.startDate).toLocaleDateString()}
+                        </p>
+                    </div>
+                </div>
+                <div className="column">
+                    <div className="property">
+                        <label for="">Location</label>
+                        <p>
+                            {opportunity.location}
+                        </p>
+                    </div>
+                    <div className="property">
+                        <label for="">End Date</label>
+                        <p>
+                            {new Date(opportunity.endDate).toLocaleDateString()}
+                        </p>
+                    </div>
+                </div>
         </div>
-      ) : (
-        <div className="text-center">Opportunity not found.</div>
-      )}
-      <div className='otheroppcards'>
-        <Link className='othercardslink' to='/opportunities'>
-          <h1>Look for other</h1>
-        </Link>
-        <VolunteerOpportunities></VolunteerOpportunities>
+        {hasApplied ? (
+          <p className="text-success">You have already applied for this opportunity.</p>
+        ) : (
+          <button className="btn btn-primary" onClick={handleApply}>
+            Apply for Opportunity
+          </button>
+        )}
       </div>
+    </div>
+  ) : (
+    <div className="text-center">Opportunity not found.</div>
+  )}
     </div>
   );
 };
 
-export default OpportunityCard;
+export default OpportunityDetail;

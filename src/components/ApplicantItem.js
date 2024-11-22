@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import OpportunityName from "./OpportunityName";
 
 const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
   const [status, setStatus] = useState(applicant.isAccepted ? "Accepted" : "Pending");
@@ -64,10 +65,11 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
   };
 
   return (
-    <li>
+    <li className="applicant">
       <h3>
         {applicant.user.name} {applicant.user.surname}
       </h3>
+      <p>Applied For: <OpportunityName opportunityId={opportunityId} /> </p>
       <p>Email: {applicant.user.email}</p>
       <p>Status: {status}</p>
 

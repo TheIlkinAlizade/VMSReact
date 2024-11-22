@@ -30,24 +30,34 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#about">About</a>
+              <a className="nav-link" href="/#about">About</a>
             </li>
             <li className="nav-item">
               <Link to="/opportunities" className="nav-link">Projects</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">Contact</a>
+              <a className="nav-link" href="/#contact">Contact</a>
             </li>
             {user ? (
               <>
-                <li className="nav-item">
-                  <span className="nav-link">Welcome, {user.username || 'User'}!</span>
-                </li>
                 <li className="nav-item">
                   {user.role === 'User' ? (
                     <Link to="/applicantions" className="nav-link">My Applications</Link>
                   ) : user.role === 'Organization' ? (
                     <Link to="/applicants" className="nav-link">View Applicants</Link>
+                  ) : null}
+                </li>
+                <li className="nav-item">
+                  {user.role === 'Organization' ? (
+                    <Link to="/opportunity/create" className="nav-link">Create Opportunity</Link>
+                  ) : null}
+                </li>
+                <li className="nav-item">
+                  {user.role === 'User' ? (
+                    <Link to="/user/profile" className="nav-link" style={{textDecoration:'none'}}>Welcome, {user.username || 'User'}!</Link>
+                  ) : null}
+                 {user.role === 'Organization' ? (
+                    <Link to="/org/profile" className="nav-link" style={{textDecoration:'none'}}>Welcome, {user.username || 'Organization'}!</Link>
                   ) : null}
                 </li>
                 <li className="nav-item">

@@ -1,77 +1,35 @@
-/* General Styles */
-:root {
-    --primary: #FFC222;
-    --slide-pizza: #7B1010;
-    --slide-italian: #3D221D;
-    --slide-chicken: #070f26;
-}
-body {
-    background-color: #391717; /* Dark red background */
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
-  
-  .navbar {
-    background-color: #52190a; /* Matches the body background */
-  }
-  
-  .btn-menu {
-    color: #fff;
-    font-size: 1.1rem;
-  }
-  .white-button {
-    color: white !important; /* Change text color to white */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap');
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.white-button i {
-    color: white; /* Change icon color to white if needed */
+body{
+    background-color: rgb(255, 255, 255) !important;
 }
 
-  
-  .navbar-brand .logo-text {
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px #1b7506; /* Green shadow for logo */
-  }
-  
-  .nav-icons .icon-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-  }
-  
-  .icon-btn .badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #ffc107; /* Yellow badge */
-    color: #e6e1e1;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 0.2em 0.5em;
-    font-size: 0.8rem;
-  }
-  
-  .offcanvas-header, .offcanvas-body {
-    background-color: #52190a; /* Matches navbar */
-    color: #fff;
-  }
-  
-  .offcanvas .nav-link {
-    color: #fff;
-    font-size: 1.1rem;
-    padding: 0.75em 1em;
-  }
-  
-  .offcanvas .nav-link:hover {
-    background-color: #5c0a0a;
-    border-radius: 4px;
-  }
-  
-/* Carousel Styles */
-
+.navbar{
+    background-color: #8e44ad !important;
+}
+.hero-section{
+    background-color: #8e44ad !important;
+    height: 100vh;
+}
+.about-section{
+    background-color: #ffffff;
+    margin: 0 0 100px 0;
+    color: black !important;
+}
+.footer-section{
+    background-color: #8e44ad !important;
+}
 
 .carousel-item{
     min-height: 500px;
@@ -505,4 +463,647 @@ body {
     height: 250px;
     object-fit: cover;
     object-position: top;
+}
+
+/* POST */
+.post{
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.post .container{
+    width: 100%;
+    background-color: #ffffff;
+    padding: 50px 20px;
+}
+
+.post .container .product-header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.post .container .product-header .title{
+    width: 690px;
+    height: 30px;
+    padding: 0 20px;
+}
+.post .container .product-header .title h1{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #212c3a;
+}
+.post .container .product-header .likebutton{
+    width: 160px;
+    height: 30px;
+    display: inline-block;
+    padding: 0 35px;
+}
+.post .container .product-header .likebutton a{
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    color: #ca1016;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.post .container .product-image-slider{
+    width: 640px;
+    height: 540px;
+    position: relative;
+}
+.post .container .product-image-slider .images .image{
+    width: 640px;
+    height: 480px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.post .container .product-image-slider .images img{
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.post .container .product-image-slider .images .button{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+    color: #ffffff;
+}
+.post .container .product-image-slider .images .button a{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    user-select: none;
+}
+.post .container .product-image-slider .images .button .prev{
+    border-radius: 0 5px 5px 0;
+}
+.post .container .product-image-slider .images .button .next{
+    border-radius: 5px 0 0 5px;
+}
+
+.post .container .product-image-slider .subimages{
+    margin-top: 5px;
+    width: 640px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.post .container .product-image-slider .subimages .item{
+    min-width: 70px;
+    min-height: 50px;
+    overflow: hidden;
+    border-radius: 7px;
+    cursor: pointer;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.post .container .product-about{
+    width: 640px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 50px 0;
+}
+.post .container .product-about .column{
+    width: 315px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.post .container .product-about .column .property{
+    width: 100%;
+    height: 18px;
+    display: grid;
+    grid-template-columns: 140px auto;
+    -webkit-column-gap: 5px;
+    -moz-column-gap: 5px;
+    column-gap: 5px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 2px 0;
+}
+.post .container .product-about .column .property label{
+    color: #8d94ad;
+}
+.post .container .product-about .column .property span{
+    color: #212c3a;
+}
+
+.product-sidebar{
+    width: 310px;
+    height: 330px;
+    position: absolute;
+    right: 15%;
+    top: 15%;
+    padding: 20px;
+    border-radius: 7px;
+    background-color: #f6f7fa;
+}
+.product-sidebar .sidebar{
+    width: 100%;
+    height: 100%;
+    position: sticky;
+}
+.product-sidebar .sidebar .product-price{
+    width: 100%;
+    padding: 0 0 20px 0;
+}
+.product-sidebar .sidebar .product-price .price{
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+}
+.product-sidebar .sidebar .product-price .price-converted{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+.product-sidebar .sidebar .product-owner{
+    border-top: 1px solid #eaebf2;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-sidebar .sidebar .product-owner .owner-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+.product-sidebar .sidebar .product-owner .owner-info h1{
+    color: #212c3a;
+    font-size: 16px;
+    line-height: 19px;
+}
+.product-sidebar .sidebar .product-owner .owner-info p{
+    color: #8d94ad;
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 17px;
+}
+.product-sidebar .sidebar .product-owner .owner-logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: url(//turbo.azstatic.com/assets/application/sprites/main-81621bca022dacba82baf03eb6a48661caa4cadfcac266156ebeadeb662d1b14.svg#icon-owner-fallback) no-repeat center/63px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #d8d8d8;
+    background-color: #d8d8d8;
+}
+.product-sidebar .sidebar .product-installment{
+    padding-top: 15px;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-sidebar .sidebar .product-installment button{
+    width: 270px;
+    height: 48px;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #ca1016;
+    padding: 15px 40px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    vertical-align: middle;
+    border-radius: 7px;
+    transition: 0.5s;
+    background-color: #3db460;
+}
+.product-sidebar .sidebar .product-installment button:hover{
+    background-color: #269547;
+    transition: 0.5s;
+}
+
+
+
+/* SIMILAR POSTS */
+
+.posts{
+    flex-direction: column;
+    position: relative;
+    background-color: transparent !important;
+}
+.section{
+    width: 70%;
+    background-color: #f3f4f7;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+.posts .section .title-section{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+}
+
+.posts .section .title-section .similar{
+    line-height: 20px;
+    margin: 0 40px;
+    font-size: 16px;
+    color: #212c3a;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.applicationslist{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+}
+.applicationslist .applicants{
+    background-color: transparent !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+}
+.applicationslist .applicants a{
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+.applicationslist .applicants .applicant:hover{
+    background-color: blue;
+    color: white;
+    transition: 0.4s;
+}
+.applicationslist .applicants .applicant:hover a{
+    color: white;
+    transition: 0.4s;
+}
+.applicationslist h1{
+    margin: 20px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+.applicationslist .applicants .applicant h3{
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    text-align: center;
+    min-height: 50px;
+    max-height: 100px;
+    overflow: hidden;
+    overflow: scroll;
+    background-color: transparent;
+}
+
+
+
+.applicantslist{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.applicantslist h2{
+    width: 25%;
+    height: 100%;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+.applicants{
+    width: 75%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.applicant{
+    min-width: 350px;
+    max-width: 1000px;
+    min-height: 100px;
+    border: 1px solid black;
+    list-style: none;
+    border-radius: 12px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.4s; 
+}
+.applicant button{
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 100px;
+    margin: 0 10px;
+    transition: 0.4s;
+    background-color: black;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+}
+.applicant button:hover{
+    scale: 1.05;
+    transition: 0.4s;
+}
+
+
+/* Custom styles for layout improvements */
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  
+  .card-body h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .card-body p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.1);
+  }
+  
+.opportunitycard{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.oppcard{
+    display: flex;
+    flex-direction: row;
+}
+.oppcard img{
+    width: 50%;
+}
+.oppcard .card-body{
+    width: 50%;
+}
+.oppcard .card-body .card-title{
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 400;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+.oppcard .card-body h5{
+    opacity: 0.3;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    width: 80%;
+}
+.oppcard .card-body .card-text{
+    width: 90%;
+    height: 200px;
+    padding: 10px;
+    border: 1px dotted rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    overflow-y: scroll;
+    word-break: break-all;
+}
+
+
+.otheroppcards{
+    width: 100%;
+    height: 100%;
+    color: black;
+    margin: 100px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.otheroppcards .othercardslink{
+    text-decoration: none;
+    width: 100%;
+    text-align: right;
+    color: black;
+    text-shadow: 20px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.otheroppcards .othercardslink:hover{
+    scale: 1.05;
+    transition: 0.5s;
+    transform: translateX(-40px);
+}
+
+@keyframes textshadowidle {
+    0%, 100%{
+        text-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+    }
+    50%{
+        text-shadow: 110px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+.oppform{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+}
+
+.oppform h2{
+    width: 95%;
+    text-align: left;
+    margin: 20px 20px 0 20px;
+}
+.oppform div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+.oppform div label{
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.oppform div input,
+.oppform div textarea{
+    width: 350px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    margin: 10px;
+}
+.oppform div textarea{
+    resize: none;
+    height: 120px;
+    padding: 5px 20px;
+}
+.oppform button{
+    width: 200px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    margin: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: #8e44ad;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.4s;
+}
+.oppform button:hover{
+    color: rgba(255, 255, 255, 1);
+    transition: 0.2s;
+    scale: 1.05;
+}
+
+.oppform h1{
+    margin-top: 20px;
+}
+
+
+
+
+.signform{
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+}
+
+.signform h2{
+    width: 95%;
+    text-align: center;
+    margin: 20px;
+}
+.signform div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+.signform label{
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.signform input,
+.signform textarea{
+    margin: 10px;
+    width: 350px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.signform textarea{
+    resize: none;
+    height: 120px;
+    padding: 5px 20px;
+}
+.signform button{
+    width: 200px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    margin: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: #8e44ad;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.4s;
+}
+.signform button:hover{
+    color: rgba(255, 255, 255, 1);
+    transition: 0.2s;
+    scale: 1.05;
+}
+
+.opplist{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.opplist .opp-item{
+    width: 500px;
+    border: 1px solid black;
 }

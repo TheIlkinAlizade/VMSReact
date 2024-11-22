@@ -44,7 +44,7 @@ const Login = ({ role }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="signform">
       <h2>Login as {role}</h2>
       <input
         type="email"

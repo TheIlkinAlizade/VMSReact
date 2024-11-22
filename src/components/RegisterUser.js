@@ -30,7 +30,7 @@ const RegisterUser = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="signform">
       <h2>Register User</h2>
       <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
       <input type="text" name="surname" placeholder="Surname" onChange={handleChange} required />
@@ -40,6 +40,7 @@ const RegisterUser = () => {
       <textarea name="experience" placeholder="Experience" onChange={handleChange}></textarea>
       <button type="submit">Register</button>
       <p>Already have an account?<Link to='/login/user'>Sign In</Link></p>
+      <p><Link to='/register/org'>Join as Organization account</Link></p>
     </form>
   );
 };

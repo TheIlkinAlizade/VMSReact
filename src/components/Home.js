@@ -9,10 +9,8 @@ import edureaImg from '../assets/img/edurea.jpg';
 const Home = () => {
   return (
     <div>
-      {/* Navbar */}
-
       {/* Hero Section */}
-      <header className="hero-section text-white text-center py-5">
+      <header className="hero-section text-white text-center py-5" style={{minHeight:'90vh', display:'flex',justifyContent:'center', alignItems:'center'}}>
         <div className="container">
           <h1>Make a Difference in Your Community</h1>
           <p className="lead">Join us to support meaningful causes and create positive change</p>
@@ -20,16 +18,17 @@ const Home = () => {
         </div>
       </header>
 
-      {/* About Section */}
-      <section id="about" className="py-5">
-        <div className="container">
-          <h2 className="text-center mb-4">About Us</h2>
-          <p className="text-center">VolunteerConnect is dedicated to connecting passionate volunteers with community projects that need their skills and support. Our goal is to empower individuals to make a real impact by helping causes that matter most to them.</p>
-        </div>
-      </section>
 
-      {/* Projects Section */}
+
       <section id="projects" className="py-5 bg-light">
+      {/* About Section */}
+      <div id="about" className="py-5 text-white about-section">
+        <div className="container">
+          <h2 className="text-center mb-4" style={{fontSize:'2.5em'}}>ABOUT US</h2>
+          <p className="text-center" style={{fontSize:'1.5em'}}>VolunteerConnect is dedicated to connecting passionate volunteers with community projects that need their skills and support. Our goal is to empower individuals to make a real impact by helping causes that matter most to them.</p>
+        </div>
+      </div>
+      {/* Projects Section */}
         <div className="container">
           <h2 className="text-center mb-4" style={{color:'black'}}>Ongoing Projects</h2>
           <div className="row">
@@ -68,12 +67,13 @@ const Home = () => {
       </section>
 
       {/* Get Involved Section */}
-      <section id="get-involved" className="py-5 text-white" style={{ backgroundColor: '#343a40' }}>
+      <section id="get-involved" className="py-5 text-white" style={{ backgroundColor: '#8e44ad' }}>
         <div className="container">
           <h2 className="text-center mb-4">How to Get Involved</h2>
           <p className="text-center">Sign up to start making an impact. Whether you have a few hours to spare or can commit long-term, there’s a way for you to help.</p>
-          <div className="text-center">
-            <a href="#contact" className="btn btn-light btn-lg mt-3">Sign Up to Volunteer</a>
+          <div className="text-center" style={{display:'flex', flexDirection:'column'}}>
+            <Link to='/register/user' className="btn btn-light btn-lg mt-3">Sign Up to Volunteer</Link>
+            <Link to='/register/org' className="btn btn-light btn-lg mt-3">Sign Up as Organization</Link>
           </div>
         </div>
       </section>
@@ -100,7 +100,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-4">
+      <footer className="bg-dark text-white py-4 footer-section">
         <div className="container text-center">
           <p className="mb-0">© 2024 VolunteerConnect. All rights reserved.</p>
           <div className="social-icons mt-3">

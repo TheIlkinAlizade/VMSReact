@@ -32,14 +32,14 @@ const VolunteerOpportunities = () => {
 
   return (
     <div className="container">
-      <h2 className="text-center my-4">Volunteer Opportunities</h2>
+      <h2 className="text-center my-4">Volunteering Opportunities</h2>
       {opportunities.length === 0 ? (
         <div className="text-center">No opportunities available at the moment.</div>
       ) : (
         <div className="row">
           {opportunities.map(opportunity => (
             <div className="col-md-4 col-sm-6 mb-4" key={opportunity.id}>
-              <div className="card h-100">
+              <div className="card h-100 opportunitycard">
                 <img
                   src={opportunity.imageUrl || 'http://localhost:3000/static/media/env.cd78f17d0d8207eef9f1.jpg'}
                   className="card-img-top"
