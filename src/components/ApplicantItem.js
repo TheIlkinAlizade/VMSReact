@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import OpportunityName from "./OpportunityName";
+import { Link } from "react-router-dom";
 
 const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
   const [status, setStatus] = useState(applicant.isAccepted ? "Accepted" : "Pending");
   const [user, setUser] = useState(null);
+  const [showFeedbackForm, setShowFeedbackForm] = useState(false);
+  const [feedback, setFeedback] = useState({ comment: "", rating: 0 });
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
@@ -16,7 +19,7 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
   const handleAccept = async () => {
     try {
       await axios.patch(
-        `https://localhost:7220/api/VolunteerApplication/accept/${applicant.id}`,
+        `https://localhost:7220/api/VolunteerApplication/accept/${applicant.applicationId}`,
         true,
         {
           headers: {
@@ -35,7 +38,7 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
   const handleDeny = async () => {
     try {
       await axios.patch(
-        `https://localhost:7220/api/VolunteerApplication/accept/${applicant.id}`,
+        `https://localhost:7220/api/VolunteerApplication/accept/${applicant.applicationId}`,
         false,
         {
           headers: {
@@ -53,7 +56,7 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://localhost:7220/api/VolunteerApplication/delete/${applicant.id}`);
+      await axios.delete(`https://localhost:7220/api/VolunteerApplication/delete/${applicant.applicationId}`);
       alert("Applicant deleted!");
       if (onDelete) {
         onDelete(applicant.id); // Notify parent to update the list
@@ -64,11 +67,39 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
     }
   };
 
+  const handleFeedbackSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(
+        `https://localhost:7220/api/Feedback/submit`,
+        {
+          userId: applicant.user.id,
+          opportunityId: opportunityId,
+          organizationId: user.userId,
+          comment: feedback.comment,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }
+      );
+      alert("Feedback submitted successfully!");
+      setShowFeedbackForm(false);
+      setFeedback({ comment: "", rating: 0 });
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+      alert("Error submitting feedback.");
+    }
+  };
+
   return (
     <li className="applicant">
+    <Link to={`/volunteer/${applicant.user.id}`} style={{textDecoration:'none'}}>
       <h3>
         {applicant.user.name} {applicant.user.surname}
       </h3>
+    </Link>
       <p>Applied For: <OpportunityName opportunityId={opportunityId} /> </p>
       <p>Email: {applicant.user.email}</p>
       <p>Status: {status}</p>
@@ -81,7 +112,24 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
       ) : (
         <div>
           <button onClick={handleDelete}>Delete</button>
+          {!showFeedbackForm && (
+            <button onClick={() => setShowFeedbackForm(true)}>Leave Feedback</button>
+          )}
         </div>
+      )}
+
+      {showFeedbackForm && (
+        <form onSubmit={handleFeedbackSubmit} className="feedback-form">
+          <h4>Leave Feedback</h4>
+          <textarea
+            placeholder="Write your feedback..."
+            value={feedback.comment}
+            onChange={(e) => setFeedback({ ...feedback, comment: e.target.value })}
+            required
+          ></textarea>
+          <button type="submit">Submit Feedback</button>
+          <button type="button" onClick={() => setShowFeedbackForm(false)}>Cancel</button>
+        </form>
       )}
     </li>
   );

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import {Link} from 'react-router-dom';
 import axios from "axios";
+import ApplicantCount from "./ApplicantCount";
 
 const OrganizationOpportunities = () => {
   const [opportunities, setOpportunities] = useState([]);
@@ -54,12 +56,11 @@ const OrganizationOpportunities = () => {
       <h2>Your Opportunities</h2>
       {opportunities.map((opp) => (
         <div key={opp.id} className="opp-item">
-          <h3>{opp.title}</h3>
-          <p>{opp.description}</p>
+          <Link to={`/opportunity/${opp.id}`}>
+          <h3>{opp.title}#{opp.id}</h3>
+          </Link>
           <p>Location: {opp.location}</p>
-          <p>Start Date: {opp.startDate.split("T")[0]}</p>
-          <p>End Date: {opp.endDate.split("T")[0]}</p>
-          <p>Applicants: {opp.applicantCount}</p>
+          <p>Applicants: <ApplicantCount opportunityId={opp.id} /></p>
         </div>
       ))}
     </div>

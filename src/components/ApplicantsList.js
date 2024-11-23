@@ -18,7 +18,7 @@ const ApplicantsList = ({ }) => {
   useEffect(() => {
     const fetchApplicants = async () => {
       try {
-        const response = await axios.get(`https://localhost:7220/api/VolunteerApplication/applications/${user.userId}`);
+        const response = await axios.get(`https://localhost:7220/api/VolunteerApplication/organization/${user.userId}/applications`);
         setApplicants(response.data.$values);
       } catch (error) {
         console.error("Error fetching applicants:", error);
@@ -38,7 +38,7 @@ const ApplicantsList = ({ }) => {
       <ul className="applicants">
         {applicants.length > 0 ? (
           applicants.map((applicant) => (
-            <ApplicantItem key={applicant.id} applicant={applicant} opportunityId={applicant.volunteerOpportunityId} />
+            <ApplicantItem key={applicant.id} applicant={applicant} opportunityId={applicant.opportunity.id} />
           ))
         ) : (
           <p>No applicants yet.</p>

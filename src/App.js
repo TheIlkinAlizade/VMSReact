@@ -18,6 +18,7 @@ import OpportunityDetail from './components/OpportunityDetail';
 import OpportunityForm from './components/OpportunityForm';
 import ProfilePage from './components/ProfilePage';
 import OrganizationProfilePage from './components/OrganizationProfilePage';
+import VolunteerDetailsPage from './components/VolunteerDetailsPage';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/opportunities" element={<VolunteerOpportunities />} />
         <Route path="/opportunity/:id" element={<OpportunityCard />} />
         <Route path="/opportunity/create" element={<OpportunityForm />} />
+        <Route path="/volunteer/:volunteerId" element={<VolunteerDetailsPage />} />
         {/* <Route path="/opportunity/:id" element={<OpportunityDetail />} /> */}
 
         <Route path="/register/user" element={<RegisterUser />} />

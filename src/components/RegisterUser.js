@@ -11,6 +11,8 @@ const RegisterUser = () => {
     dateOfBirth: "",
     cv: null,
     experience: "",
+    phone: "",
+    address: "",
   });
 
   const handleChange = (e) => {
@@ -37,6 +39,8 @@ const RegisterUser = () => {
       <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
       <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
       <input type="date" name="dateOfBirth" onChange={handleChange} required />
+      <input type="text" name="address" placeholder="Address(Optional)" onChange={handleChange} />
+      <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
       <textarea name="experience" placeholder="Experience" onChange={handleChange}></textarea>
       <button type="submit">Register</button>
       <p>Already have an account?<Link to='/login/user'>Sign In</Link></p>
