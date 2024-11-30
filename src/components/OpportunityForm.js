@@ -8,6 +8,8 @@ const OpportunityForm = ({ opportunityId, onFormSubmit }) => {
     location: "",
     startDate: "",
     endDate: "",
+    maxApplicants: "", 
+    tag: "",
   });
 
   useEffect(() => {
@@ -21,13 +23,14 @@ const OpportunityForm = ({ opportunityId, onFormSubmit }) => {
       const response = await axios.get(
         `https://localhost:7220/api/VolunteerOpportunity/${id}`
       );
-      const { title, description, location, startDate, endDate } = response.data;
+      const { title, description, location, startDate, endDate, maxApplicants } = response.data;
       setFormData({
         title,
         description,
         location,
         startDate: startDate.split("T")[0], // Format for <input type="date">
         endDate: endDate.split("T")[0],
+        maxApplicants: maxApplicants || "", 
       });
     } catch (error) {
       console.error("Error fetching opportunity:", error);
@@ -132,6 +135,28 @@ const OpportunityForm = ({ opportunityId, onFormSubmit }) => {
           name="endDate"
           value={formData.endDate}
           onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Max Applicants</label>
+        <input
+          type="number"
+          name="maxApplicants"
+          value={formData.maxApplicants}
+          onChange={handleChange}
+          placeholder="Max Applicants"
+          required
+        />
+      </div>
+      <div>
+        <label>Tag</label>
+        <input
+          type="text"
+          name="tag"
+          value={formData.tag}
+          onChange={handleChange}
+          placeholder="Tag"
           required
         />
       </div>

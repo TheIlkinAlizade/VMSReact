@@ -105,6 +105,9 @@ const OpportunityCard = () => {
             <p>
               Organization:<OrganizationName organizationId={opportunity.organizationId} />
             </p>
+            <p>
+             Max Applicants:{opportunity.maxApplicants}
+            </p>
             {hasApplied ? (
               <p className="text-success">You have already applied for this opportunity.</p>
             ) : (

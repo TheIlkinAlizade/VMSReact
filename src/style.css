@@ -1129,3 +1129,56 @@ body {
     margin-right: 0.5rem;
   }
   
+
+  /* Container for the filter */
+.mb-4 {
+    margin-bottom: 16px;
+  }
+  
+  /* Styling the label next to the filter description */
+  .mb-4 label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Styling the radio button labels */
+  .mb-4 label input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  
+  .mb-4 label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 6px 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for radio buttons */
+  .mb-4 label:hover {
+    background-color: #e6f7ff;
+    border-color: #007bff;
+  }
+  
+  /* Active/Checked styles */
+  .mb-4 input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .mb-4 label {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
+  

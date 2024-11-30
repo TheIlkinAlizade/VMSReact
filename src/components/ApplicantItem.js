@@ -77,6 +77,7 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
           opportunityId: opportunityId,
           organizationId: user.userId,
           comment: feedback.comment,
+          rate: feedback.rate,
         },
         {
           headers: {
@@ -127,6 +128,7 @@ const ApplicantItem = ({ applicant, opportunityId, onDelete }) => {
             onChange={(e) => setFeedback({ ...feedback, comment: e.target.value })}
             required
           ></textarea>
+          <input type="number" name="rate"  onChange={(e) => setFeedback({ ...feedback, rate: e.target.value })} />
           <button type="submit">Submit Feedback</button>
           <button type="button" onClick={() => setShowFeedbackForm(false)}>Cancel</button>
         </form>

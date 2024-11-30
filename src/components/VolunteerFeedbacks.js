@@ -34,6 +34,7 @@ const VolunteerFeedbacks = ({ id }) => {
                     <li key={feedback.id}>
                         <p><strong>Opportunity:</strong> <OpportunityName opportunityId={feedback.opportunityId} /></p>
                         <p><strong>Comment:</strong> {feedback.comment}</p>
+                        <p><strong>Rate:</strong> {feedback.rate}</p>
                         <p><strong>Given By:</strong> <OrganizationName organizationId={feedback.organizationId} /></p>
                         <hr />
                     </li>
